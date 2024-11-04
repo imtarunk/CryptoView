@@ -1,5 +1,5 @@
 require("dotenv").config();
-const Web3 = require("web3").default; // Ensure proper import of Web3
+const { Web3 } = require("web3"); // Ensure proper import of Web3
 const fetch = require("node-fetch");
 const { create } = require("ipfs-http-client");
 const { NFTMetadata, Transaction } = require("../models/newAdded.js"); // Ensure these paths are correct
@@ -16,13 +16,7 @@ if (!web3) {
 const ipfs = create({ url: "https://ipfs.infura.io:5001/api/v0" }); // Initialize IPFS client
 
 // Ensure required environment variables are set
-if (
-  !process.env.ALCHEMY_URL ||
-  !process.env.MONGO_URI ||
-  !process.env.PORT ||
-  !process.env.TOKEN_CONTRACT_ADDRESS ||
-  !process.env.PRIVATE_KEY
-) {
+if (!process.env.ALCHEMY_URL || !process.env.MONG_URI || !process.env.PORT) {
   console.error("Missing required environment variables.");
   process.exit(1);
 }
