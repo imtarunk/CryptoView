@@ -80,4 +80,40 @@ Contributions are welcome! Please create a pull request with your changes.
 **License:**
 
 This project is licensed under the MIT License.
+
 # marpho-test
+
+# Postman instration :
+
+### **1: Retrieve NFT Metadata**
+
+- **Method**: GET
+- **URL**: `http://localhost:3000/api/nft-metadata?contractAddress=0x...&tokenId=123`
+- **Headers**: Set `Content-Type: application/json`.
+- **Parameters**: `contractAddress` and `tokenId` in the query string.
+
+## 2: Token Transfer
+
+- **Method**: POST
+- **URL**: `http://localhost:3000/api/transfer`
+
+Pass this data into postman to check : Endpoints
+
+{
+"from": "0xSenderAddress",
+"to": "0xRecipientAddress",
+"amount": 1000
+}
+
+### **3:Get Token Balance**
+
+- **Method**: GET
+- **URL**: `http://localhost:3000/api/token-balance?contractAddress=0x...&walletAddress=0x...`
+- **Headers**: Set `Content-Type: application/json`.
+
+### **4: Retrieve Data from IPFS**
+
+- **Method**: GET
+- **URL**: `http://localhost:3000/api/ipfs-hash/{hash}`
+- **Headers**: Set `Content-Type: application/json`.
+- **Parameters**: `hash` as a path parameter.

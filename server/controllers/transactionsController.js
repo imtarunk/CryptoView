@@ -2,7 +2,9 @@ require("dotenv").config();
 const { Web3 } = require("web3"); // Ensure proper import of Web3
 const fetch = require("node-fetch");
 const { create } = require("ipfs-http-client");
-const { NFTMetadata, Transaction } = require("../models/newAdded.js"); // Ensure these paths are correct
+const { NFTMetadata, Transaction } = require("../models/newAdded.js");
+const Portfolio = require("../models/userPortfolioModel.js");
+// Ensure these paths are correct
 
 require("dotenv").config();
 
@@ -72,7 +74,7 @@ const createTransaction = async (req, res) => {
       user_id,
     });
 
-    let portfolio = await PortfolioSchema.findOne({ user_id });
+    let portfolio = await Portfolio.findOne({ user_id });
 
     if (!portfolio) {
       return res.status(404).json({ error: "Portfolio not found" });
@@ -89,7 +91,7 @@ const createTransaction = async (req, res) => {
 const getTransactions = async (req, res) => {
   try {
     const userId = req.user.id;
-    const userFolio = await PortfolioSchema.findOne({
+    const userFolio = await Portfolio.findOne({
       user_id: userId,
     }).populate("transactions");
 
