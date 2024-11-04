@@ -25,6 +25,7 @@
     "execp": "^0.0.1",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
+    "ipfs-http-client": "^56.0.0",
     "jsonwebtoken": "^9.0.2",
     "localforage": "^1.10.0",
     "lucide-react": "^0.356.0",
@@ -45,7 +46,7 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "validator": "^13.11.0",
-    "web3": "^4.7.0",
+    "web3": "^4.14.0",
     "web3-eth-contract": "^4.3.0",
     "zod": "^3.22.5",
     "zustand": "^4.5.2"

@@ -46,6 +46,19 @@ mongoose
     // console.log(error);
   });
 
+// Initialize Web3
+const web3 = new Web3(process.env.ALCHEMY_URL);
+const tokenContract = new web3.eth.Contract(
+  ERC20_ABI,
+  process.env.TOKEN_CONTRACT_ADDRESS
+);
+
+// Connect to Alchemy
+web3.eth.net
+  .isListening()
+  .then(() => console.log("Connected to Alchemy"))
+  .catch((e) => console.log("Error connecting to Alchemy", e));
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);
 });
